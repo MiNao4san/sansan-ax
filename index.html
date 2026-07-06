@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>授業録画アーカイブ</title>
+  <meta name="description" content="Google Driveの授業録画とGoogle Classroom資料を探しやすく整理するプロトタイプ" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <header class="app-header">
+    <div class="header-inner">
+      <a class="brand" href="#/lessons" aria-label="授業録画アーカイブ トップ">
+        <span class="brand-mark">L</span>
+        <span>
+          <strong>授業録画アーカイブ</strong>
+          <small>Drive / Classroom Prototype</small>
+        </span>
+      </a>
+      <nav class="header-actions" aria-label="主要操作">
+        <a class="ghost-button" href="#/lessons">授業一覧</a>
+        <button class="primary-button" id="syncButton" type="button">Drive取り込み</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="app" class="app-shell" tabindex="-1"></main>
+
+  <template id="materialRowTemplate">
+    <div class="material-editor-row">
+      <input name="materialTitle" type="text" placeholder="資料タイトル" />
+      <input name="materialUrl" type="url" placeholder="https://..." />
+      <select name="materialSource">
+        <option value="classroom">Classroom</option>
+        <option value="manual">手動</option>
+      </select>
+      <button class="icon-button" type="button" data-remove-material aria-label="資料を削除">×</button>
+    </div>
+  </template>
+
+  <script src="https://apis.google.com/js/api.js"></script>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script src="./script.js"></script>
+</body>
+
+</html>
